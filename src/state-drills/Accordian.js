@@ -19,7 +19,7 @@ class Accordian extends React.Component {
         <button onClick={() => this.handleActiveTab(tabId)}>
           {section.title}
         </button>
-        {(activeTabIndex === tabId) && <p>section.content</p>}
+        {(activeTabIndex === tabId) && <p>{section.content}</p>}
       </li>
     );
   }
