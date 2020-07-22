@@ -2,38 +2,56 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 class RouletteGun extends React.Component {
-  static defaultProps = {bulletInChamber: 8}
-  
+  static defaultProps = { bulletInChamber: 8 }
+
+  constructor (props) {
+    super(props);
+    this.timeout = null;
+  }
+
   state = {
     chamber: null,
     spinningTheChamber: false,
-    message: ''
   }
 
-  randomChamber(){
-    console.log('shoot');
+  randomChamber() {
     return Math.ceil(Math.random() * 8);
+    // return 8;
   }
 
   randomFate() {
-    if(this.props.bulletInChamber === this.state.chamber) {
-       this.setState({message: 'BANG!'})
-    }
-    this.setState({message : 'You are safe... for now.'});
+    console.log(this.state.spinningTheChamber)
+    this.setState({ spinningTheChamber: false });
   }
 
   pullTrigger() {
-    this.setState({chamber: this.randomChamber(), spinningTheChamber: true})
 
-    setTimeout(this.randomFate, 2000)
+    this.setState((state) => ({ chamber: this.randomChamber(), spinningTheChamber: true }));
+    console.log(this.state.spinningTheChamber);
+    //this.setState({spinningTheChamber : true});
+    this.timeout = setTimeout(() => { this.randomFate() }, 2000)
+  }
+
+  componentWillUnmount () {
+    clearTimeout(this.timeout);
   }
 
   render() {
-    console.log(this.props);
+    let message = 'Let\'s play';
+    if (this.state.spinningTheChamber) {
+      message = 'spinning the chamber and pulling the trigger!...';
+    } else {
+      if (this.props.bulletInChamber === this.state.chamber) {
+        message = 'BANG!'
+      } else {
+        message = 'You are safe... for now.';
+      }
+    }
+    console.log(this.state.chamber, this.props.bulletInChamber);
     return (
       <div>
-        <p>{this.state.message}</p>
-        <button onClick={()=> this.pullTrigger()}>Pull the Trigger!</button>
+        <p>{message}</p>
+        <button onClick={() => this.pullTrigger()}>Pull the Trigger!</button>
       </div>
     )
   }
