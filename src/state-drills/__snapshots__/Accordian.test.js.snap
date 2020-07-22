@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`This is the Accordian test. Only have one section open at a time 1`] = `
+<ul>
+  <li
+    key="0"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+  <li
+    key="1"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+  <li
+    key="2"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+    <p>
+      section.content
+    </p>
+  </li>
+</ul>
+`;
+
+exports[`This is the Accordian test. Opens a clicked section 1`] = `
+<ul>
+  <li
+    key="0"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+  <li
+    key="1"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+    <p>
+      section.content
+    </p>
+  </li>
+  <li
+    key="2"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`This is the Accordian test. Renders empty <li></li> given no accordian 1`] = `<ul />`;
+
+exports[`This is the Accordian test. Renders empty <li></li> given no section 1`] = `<ul />`;
+
+exports[`This is the Accordian test. Renders no section active by default 1`] = `
+<ul>
+  <li
+    key="0"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+  <li
+    key="1"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+  <li
+    key="2"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Section One
+    </button>
+  </li>
+</ul>
+`;

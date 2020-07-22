@@ -13,13 +13,13 @@ class Accordian extends React.Component {
       this.setState({activeTabIndex: index});
   }
 
-  renderTab(section) {
+  renderTab(section, tabId, activeTabIndex) {
     return (
-      <li>
-        <button>
+      <li key={tabId}>
+        <button onClick={() => this.handleActiveTab(tabId)}>
           {section.title}
         </button>
-        
+        {(activeTabIndex === tabId) && <p>section.content</p>}
       </li>
     );
   }
@@ -27,7 +27,9 @@ class Accordian extends React.Component {
   render () {
     return (
       <ul>
-        {this.renderTab({title: 'Secion One'})}
+        {this.props.sections.map((section, tabId) => {
+          return this.renderTab(section, tabId, this.state.activeTabIndex);
+        })}
       </ul>
     );
   }
