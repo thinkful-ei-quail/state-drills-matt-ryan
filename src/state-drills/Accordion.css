@@ -1,0 +1,30 @@
+body {
+  background-color: #3C325B;
+  color: wheat;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition-delay: 2s;
+}
+
+li{
+  margin: 0;
+}
+
+button {
+  width: 100%;
+  background-color: black;
+  color: greenyellow;
+}
+
+button:hover {
+  background-color: #1B0920;
+  color: #7206D7;
+}
+
+p {
+  margin: 15px;
+}

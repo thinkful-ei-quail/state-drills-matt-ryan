@@ -1,4 +1,5 @@
 import React from 'react';
+import './Accordion.css'
 
 class Accordian extends React.Component {
   static defaultProps = {
